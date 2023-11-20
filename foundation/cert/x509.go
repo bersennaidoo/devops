@@ -100,7 +100,7 @@ func createCert(template *x509.Certificate, caKey *rsa.PrivateKey,
 	var (
 		derBytes []byte
 		certOut  bytes.Buffer
-		KeyOut   bytes.Buffer
+		keyOut   bytes.Buffer
 	)
 
 	privateKey, err := key.CreateRSAPrivateKey(4096)

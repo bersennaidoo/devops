@@ -1,0 +1,28 @@
+caCert:
+  serial: 1
+  validForYears: 10
+  subject:
+    country: ZAR
+    organizationalUnit: Certificate Management
+    locality: JHB
+    commonName: CA Certificate
+certs:
+  go-demo.localtest.me:
+    serial: 1
+    validForYears: 1
+    dnsNames: ["go-demo.localtest.me", "go-demo-2.localtest.me"]
+    subject:
+      country: ZAR
+      organization: Golang Demo Org
+      organizationalUnit: go-demo department
+      locality: NY
+      commonName: go-demo.localtest.me
+  go-demo-client.localtest.me:
+    serial: 1
+    validForYears: 1
+    subject:
+      country: ZAR
+      organization: Golang Demo Org
+      organizationalUnit: go-demo department
+      locality: JHB
+      commonName: go-demo-client.localtest.me

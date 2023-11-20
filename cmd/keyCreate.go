@@ -1,40 +1,36 @@
 /*
-Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-
+Copyright © 2023 Bersen Naidoo bersen.naidoo@gmail.com
 */
 package cmd
 
 import (
 	"fmt"
 
+	"github.com/bersennaidoo/devops/foundation/key"
 	"github.com/spf13/cobra"
 )
 
+var keyOut string
+var keyLength int
+
 // keyCreateCmd represents the keyCreate command
 var keyCreateCmd = &cobra.Command{
-	Use:   "keyCreate",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Use:   "key",
+	Short: "key commands",
+	Long:  `commands to create keys`,
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("keyCreate called")
+		err := key.CreateRSAPrivateKeyAndSave(keyOut, keyLength)
+		if err != nil {
+			fmt.Printf("Create key error: %s\n", err)
+			return
+		}
+		fmt.Printf("Key created %s with length %d\n", keyOut, keyLength)
 	},
 }
 
 func init() {
 	createCmd.AddCommand(keyCreateCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// keyCreateCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// keyCreateCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	keyCreateCmd.Flags().StringVarP(&keyOut, "key-out", "k", "key.pem", "destination path for key")
+	keyCreateCmd.Flags().IntVarP(&keyLength, "key-length", "l", 4096, "key length")
 }

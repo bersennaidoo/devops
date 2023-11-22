@@ -1,0 +1,39 @@
+! Startup-config last modified at Wed Nov 22 11:06:21 2023 by root
+! device: ceos (cEOSLab, EOS-4.28.5.1M-30127723.42851M (engineering build))
+!
+no aaa root
+!
+username admin role network-admin secret sha512 $6$dDOaXJdbfsZC5mEZ$lRFpoAy1ODx2AcBInmURcP5nlJa8Su79/I.ZJf6H9xhktxtC6VNPArzorY/Z9JQEgSjrvWDqD6QcVKtXwEWp..
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+hostname ceos
+!
+spanning-tree mode mstp
+!
+management api models
+   provider aft
+      ipv4-unicast
+      ipv6-unicast
+!
+management api restconf
+   transport https test
+      ssl profile restconf
+!
+management security
+   ssl profile restconf
+      certificate restconf.crt key restconf.key
+!
+interface Ethernet1
+!
+interface Ethernet2
+!
+interface Management0
+   ip address 172.20.20.2/24
+   ipv6 address 2001:172:20:20::2/64
+!
+ip routing
+!
+end

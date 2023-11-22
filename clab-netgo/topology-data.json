@@ -1,0 +1,138 @@
+{
+  "name": "netgo",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-60777038963c",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "2001:172:20:20::/64",
+        "ipv6-gw": "2001:172:20:20::1",
+        "mtu": 1500,
+        "external-access": true
+      }
+    }
+  },
+  "nodes": {
+    "ceos": {
+      "index": "0",
+      "shortname": "ceos",
+      "longname": "clab-netgo-ceos",
+      "fqdn": "ceos.netgo.io",
+      "group": "",
+      "labdir": "/home/bersen/go_projects/devops/clab-netgo/ceos",
+      "kind": "ceos",
+      "image": "ceos:4.28",
+      "mgmt-net": "",
+      "mgmt-intf": "Management0",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "00:1c:73:42:04:06",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-60777038963c",
+        "clab-node-group": "",
+        "clab-node-kind": "ceos",
+        "clab-node-lab-dir": "/home/bersen/go_projects/devops/clab-netgo/ceos",
+        "clab-node-name": "ceos",
+        "clab-node-type": "",
+        "clab-topo-file": "/home/bersen/go_projects/devops/physical/clab/topo_base.yml",
+        "containerlab": "netgo"
+      },
+      "port-bindings": [
+      ]
+    },
+    "cvx": {
+      "index": "1",
+      "shortname": "cvx",
+      "longname": "clab-netgo-cvx",
+      "fqdn": "cvx.netgo.io",
+      "group": "",
+      "labdir": "/home/bersen/go_projects/devops/clab-netgo/cvx",
+      "kind": "cvx",
+      "image": "networkop/cx:5.0.0",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-60777038963c",
+        "clab-node-group": "",
+        "clab-node-kind": "cvx",
+        "clab-node-lab-dir": "/home/bersen/go_projects/devops/clab-netgo/cvx",
+        "clab-node-name": "cvx",
+        "clab-node-type": "",
+        "clab-topo-file": "/home/bersen/go_projects/devops/physical/clab/topo_base.yml",
+        "containerlab": "netgo"
+      },
+      "port-bindings": [
+      ]
+    },
+    "srl": {
+      "index": "2",
+      "shortname": "srl",
+      "longname": "clab-netgo-srl",
+      "fqdn": "srl.netgo.io",
+      "group": "",
+      "labdir": "/home/bersen/go_projects/devops/clab-netgo/srl",
+      "kind": "srl",
+      "image": "ghcr.io/nokia/srlinux:21.6.4",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-60777038963c",
+        "clab-node-group": "",
+        "clab-node-kind": "srl",
+        "clab-node-lab-dir": "/home/bersen/go_projects/devops/clab-netgo/srl",
+        "clab-node-name": "srl",
+        "clab-node-type": "ixrd2",
+        "clab-topo-file": "/home/bersen/go_projects/devops/physical/clab/topo_base.yml",
+        "containerlab": "netgo"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "srl",
+        "interface": "e1-1",
+        "mac": "aa:c1:ab:3f:4c:ce",
+        "peer": "z"
+      },
+      "z": {
+        "node": "ceos",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:b3:f8:37",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "cvx",
+        "interface": "swp1",
+        "mac": "aa:c1:ab:f0:7f:97",
+        "peer": "z"
+      },
+      "z": {
+        "node": "ceos",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:e3:4d:f2",
+        "peer": "a"
+      }
+    }
+  ]
+}

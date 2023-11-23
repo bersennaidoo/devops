@@ -6,7 +6,7 @@
       "prefix": "clab",
       "mgmt": {
         "network": "clab",
-        "bridge": "br-60777038963c",
+        "bridge": "br-867903b3cdbd",
         "ipv4-subnet": "172.20.20.0/24",
         "ipv4-gw": "172.20.20.1",
         "ipv6-subnet": "2001:172:20:20::/64",
@@ -28,13 +28,13 @@
       "image": "ceos:4.28",
       "mgmt-net": "",
       "mgmt-intf": "Management0",
-      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-address": "172.20.20.3",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "2001:172:20:20::2",
+      "mgmt-ipv6-address": "2001:172:20:20::3",
       "mgmt-ipv6-prefix-length": 64,
-      "mac-address": "00:1c:73:42:04:06",
+      "mac-address": "00:1c:73:52:84:ef",
       "labels": {
-        "clab-mgmt-net-bridge": "br-60777038963c",
+        "clab-mgmt-net-bridge": "br-867903b3cdbd",
         "clab-node-group": "",
         "clab-node-kind": "ceos",
         "clab-node-lab-dir": "/home/bersen/go_projects/devops/clab-netgo/ceos",
@@ -57,13 +57,13 @@
       "image": "networkop/cx:5.0.0",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-address": "172.20.20.4",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "2001:172:20:20::3",
+      "mgmt-ipv6-address": "2001:172:20:20::4",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-60777038963c",
+        "clab-mgmt-net-bridge": "br-867903b3cdbd",
         "clab-node-group": "",
         "clab-node-kind": "cvx",
         "clab-node-lab-dir": "/home/bersen/go_projects/devops/clab-netgo/cvx",
@@ -86,13 +86,13 @@
       "image": "ghcr.io/nokia/srlinux:21.6.4",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-address": "172.20.20.2",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "2001:172:20:20::4",
+      "mgmt-ipv6-address": "2001:172:20:20::2",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-60777038963c",
+        "clab-mgmt-net-bridge": "br-867903b3cdbd",
         "clab-node-group": "",
         "clab-node-kind": "srl",
         "clab-node-lab-dir": "/home/bersen/go_projects/devops/clab-netgo/srl",
@@ -110,13 +110,13 @@
       "a": {
         "node": "srl",
         "interface": "e1-1",
-        "mac": "aa:c1:ab:3f:4c:ce",
+        "mac": "aa:c1:ab:9b:43:c0",
         "peer": "z"
       },
       "z": {
         "node": "ceos",
         "interface": "eth1",
-        "mac": "aa:c1:ab:b3:f8:37",
+        "mac": "aa:c1:ab:e0:a2:63",
         "peer": "a"
       }
     },
@@ -124,13 +124,13 @@
       "a": {
         "node": "cvx",
         "interface": "swp1",
-        "mac": "aa:c1:ab:f0:7f:97",
+        "mac": "aa:c1:ab:2a:4d:70",
         "peer": "z"
       },
       "z": {
         "node": "ceos",
         "interface": "eth2",
-        "mac": "aa:c1:ab:e3:4d:f2",
+        "mac": "aa:c1:ab:ff:d8:3a",
         "peer": "a"
       }
     }
